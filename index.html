@@ -12,6 +12,7 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
+
   <body>
     <!-- header section  -->
     <header class="">
@@ -22,19 +23,35 @@
       <!-- search here  -->
       <section class="mb-5 flex justify-center w-full">
         <label class="input input-bordered flex items-center gap-2">
-          <input id="search-text" type="text" class="grow" placeholder="Search..." />
+          <input
+            id="search-text"
+            type="text"
+            class="grow"
+            placeholder="Search..."
+          />
           <button onclick="handleSearch()" class="btn -mr-4">Search</button>
         </label>
       </section>
 
+      <!-- loader loader/spinner  -->
+
+      <section id="show-loader" class="hidden mt-7 xl:mt-14 text-center">
+        <span class="loading loading-spinner loading-lg"></span>
+      </section>
+
       <!-- search result  -->
-      <section class="xl:mt-14">
+      <section class="mt-7 xl:mt-14">
         <div
           id="phone-container"
-          class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7 mx-3 lg:mx-5"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 mx-3 lg:mx-5"
         >
           <!-- data will be palced here from javascript  -->
         </div>
+      </section>
+
+      <!-- show all button  -->
+      <section id="show-all-btn" class="hidden text-center w-full mt-10">
+        <button onclick="showAll()" class="btn">Show All</button>
       </section>
     </main>
 
