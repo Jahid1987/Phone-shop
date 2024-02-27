@@ -13,12 +13,31 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
+    <!-- header section  -->
     <header class="">
-        <h1 class="text-5xl text-center pt-5">Phone Shop</h1>
+      <h1 class="text-5xl text-center pt-5">Phone Shop</h1>
     </header>
-    <main class="mx-auto flex items-center justify-center mt-10">
-        <button onclick="loadPhones()" class="btn">Load Phones</button>
+
+    <main class="container mx-auto mt-10">
+      <!-- search here  -->
+      <section class="mb-5 flex justify-center w-full">
+        <label class="input input-bordered flex items-center gap-2">
+          <input id="search-text" type="text" class="grow" placeholder="Search..." />
+          <button onclick="handleSearch()" class="btn -mr-4">Search</button>
+        </label>
+      </section>
+
+      <!-- search result  -->
+      <section class="xl:mt-14">
+        <div
+          id="phone-container"
+          class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7 mx-3 lg:mx-5"
+        >
+          <!-- data will be palced here from javascript  -->
+        </div>
+      </section>
     </main>
+
     <footer></footer>
 
     <script src="js/phone.js"></script>
