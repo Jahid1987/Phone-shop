@@ -1,17 +1,24 @@
 // fetching data from open api
-async function loadPhones(querry = '13', isshowAll) {
+async function loadPhones(querry = "13", isshowAll) {
   const response = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${querry}`
   );
   const data = await response.json();
   const phones = data.data;
+  // Toggle not found message
+  const notFoundMsg = document.getElementById("not-found-msg");
+  console.log(notFoundMsg, phones.length);
+  phones.length < 1
+    ? notFoundMsg.classList.remove("hidden")
+    : notFoundMsg.classList.add("hidden");
+
   displayPhones(phones, isshowAll);
 }
 
 // showing data on ui
 function displayPhones(phones, isshowAll) {
   const phoneContainer = document.getElementById("phone-container");
-  // Clearing container before loading items
+  // Clearing container before loading found items
   phoneContainer.textContent = "";
 
   //   Toggle show all button if data is more than 12 and isshowAll is not
@@ -74,9 +81,9 @@ async function showDetails(id) {
   );
   const singleData = await singleResponse.json();
   const phone = singleData.data;
-  // showing in ui 
-  const showDetailsContainer = document.getElementById('show_details');
-  const modalBox = document.createElement('div');
+  // showing in ui
+  const showDetailsContainer = document.getElementById("show_details");
+  const modalBox = document.createElement("div");
   modalBox.classList = `modal-box`;
   modalBox.innerHTML = `
     <div class="bg-orange-50 flex justify-center pt-5 pb-5 my-4">
@@ -97,9 +104,7 @@ async function showDetails(id) {
     </div>
   `;
   showDetailsContainer.appendChild(modalBox);
-  console.log(phone)
-  show_details.showModal()
+  console.log(phone);
+  show_details.showModal();
   //   console.log(singleData.data);
 }
-
-// loadPhones();
